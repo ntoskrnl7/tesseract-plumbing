@@ -1,19 +1,23 @@
 [package]
-name = "tesseract-plumbing"
-version = "0.5.1"
-authors = ["Chris Couzens <ccouzens@gmail.com>"]
-edition = "2018"
+authors = ["Chris Couzens <ccouzens@gmail.com>", "Jung-Kwang Lee <ntoskrnl7@gmail.com>"]
 description = "Safe wrapper of `tesseract-sys`"
+edition = "2018"
 homepage = "https://github.com/ccouzens/tesseract-plumbing"
-repository = "https://github.com/ccouzens/tesseract-plumbing"
-readme = "README.md"
 keywords = ["leptonica", "tesseract", "ocr", "image"]
 license = "MIT"
-[dependencies]
+name = "tesseract-plumbing"
+readme = "README.md"
+repository = "https://github.com/ccouzens/tesseract-plumbing"
+version = "0.5.2"
 
-tesseract-sys = { git = "https://github.com/ntoskrnl7/tesseract-sys" }
-leptonica-plumbing = { git = "https://github.com/ntoskrnl7/leptonica-plumbing", branch = "main" }
+[dependencies]
+leptonica-plumbing = {git = "https://github.com/ntoskrnl7/leptonica-plumbing", branch = "main"}
+tesseract-sys = {git = "https://github.com/ntoskrnl7/tesseract-sys"}
 thiserror = "1.0"
 
 [dev-dependencies]
 image = "0.23.14"
+
+[features]
+default = []
+enable-static = ["leptonica-plumbing/enable-static", "tesseract-sys/enable-static"]
